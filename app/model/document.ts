@@ -1,0 +1,29 @@
+export class Document {
+RowNum = '';
+DataAreaID = '';
+RefID = '';
+DOCUMENTID = '';
+IndexShow = '';
+DocumentName = '';
+EntityName = '';
+Attribute = '';
+Status = '';
+CreatedBy = '';
+CreatedOn = '';
+ModifiedBy = '';
+DocumentTypeID = '';
+ModifiedOn = '';
+TypeIndex = '';
+FileType = '';
+DocumentExtension = '';
+DocumentTypeTitle = '';
+IsConfirm = '';
+languageCode = '';
+TypeName = '';
+DisplayNameEntity = '';
+TotalRow = '';
+Ratio = '';
+MinWidth = '';
+FileSize = '';
+MaxWidth = '';
+}

@@ -1,0 +1,47 @@
+<md-tab-group>
+    <md-tab label="اسلایدر جدید">
+        
+            <div class="slideshow-add">
+            <md-form-field>
+                <input mdInput placeholder="نام" [(ngModel)]="slideshow.SlideName">
+            </md-form-field>
+            <md-form-field>
+                <input mdInput placeholder="عنوان" [(ngModel)]="slideshow.SliderTitle">
+            </md-form-field>
+            <md-form-field>
+                <input mdInput type="number" placeholder="سرعت" [(ngModel)]="slideshow.SpeedRate">
+            </md-form-field>
+            <md-form-field>
+                <input mdInput type="number" placeholder="مدت ماندن هر اسلاید" [(ngModel)]="slideshow.Duration">
+            </md-form-field>
+            <div>
+                    <md-form-field>
+                        <input mdInput type="number" placeholder="نسبت عرض " [(ngModel)]="slideW">
+                    </md-form-field>
+                    <span> به </span>
+                    <md-form-field>                            
+                    <input mdInput type="number" placeholder="طول" [(ngModel)]="slideH">
+                    </md-form-field>
+            </div>
+            
+            <md-form-field>
+                <input mdInput type="number" placeholder=" کمترین عرض " [(ngModel)]="slideshow.MinWidth">
+            </md-form-field>
+            <md-form-field>
+                <input mdInput type="number" placeholder="بیشترین عرض" [(ngModel)]="slideshow.MaxWidth">
+            </md-form-field>
+            <md-form-field>
+                <input mdInput type="number" placeholder="تعداد اسلاید ها" [(ngModel)]="slideshow.NumberSlides">
+            </md-form-field>
+
+                <!-- <md-select placeholder="Favorite food" [(ngModel)]="slideshow.EntityName">
+                  <md-option *ngFor="let entity of Entity" [value]="entity.id" >
+                    {{ entity.value }}
+                  </md-option>
+                </md-select> -->
+
+            <button md-raised-button color="primary" (click)="addSlideshow()">ذخیره</button>
+            </div>
+        
+    </md-tab>
+</md-tab-group>

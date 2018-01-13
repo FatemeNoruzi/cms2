@@ -1,0 +1,12 @@
+<div style="text-align: center;">
+        <span>از {{ getMin() }} تا {{ getMax() }} از {{ count }} آیتم</span>
+        <br>
+        <span>کل صفحات : {{ totalPages() }} صفحه </span>
+      <button md-icon-button (click)="onPrev()" [disabled]="page === 1 || loading" >
+        <md-icon aria-label="Example icon-button with a heart icon">navigate_next</md-icon>
+      </button>
+      <!-- <button *ngFor="let pageNum of getPages()" (click)="onPage(pageNum)"></button> -->
+      <button md-icon-button color="primary" (click)="onNext()" [disabled]="lastPage() || loading">
+        <md-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_left</md-icon>
+      </button>
+</div>

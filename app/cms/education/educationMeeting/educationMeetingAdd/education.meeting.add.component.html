@@ -1,0 +1,22 @@
+<md-tab-group>
+    <md-tab label="جلسه جدید">
+        
+            <div class="meeting-add">
+            <md-form-field>
+                <input mdInput placeholder="نام جلسه">
+            </md-form-field>
+           
+            <md-form-field>
+                <input mdInput placeholder=" تاریخ" class="form-control1"
+                name="dp1"  [firstDayOfWeek]="6" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()">
+            </md-form-field>
+
+            <md-form-field class="example-full-width">
+                <textarea mdInput placeholder="آدرس برگذاری جلسه"></textarea>
+            </md-form-field>
+
+            <button md-raised-button color="primary">ارسال</button>
+            </div>
+        
+    </md-tab>
+</md-tab-group>

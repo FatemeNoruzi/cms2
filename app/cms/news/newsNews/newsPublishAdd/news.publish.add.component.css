@@ -1,0 +1,9 @@
+.pubish-add {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pubish-add > * {
+    width: 90%;
+    margin: 15px
+  }

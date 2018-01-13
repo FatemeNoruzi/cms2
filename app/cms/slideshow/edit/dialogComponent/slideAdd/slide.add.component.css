@@ -1,0 +1,8 @@
+.dialogAdd {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dialogAdd > * {
+    width: 90%;
+  }

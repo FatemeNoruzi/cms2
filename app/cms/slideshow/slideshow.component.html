@@ -1,0 +1,70 @@
+<div class="example-container mat-elevation-z8">
+    <!-- <button md-raised-button color="warn" (click)="openDialogDeleteComponent()">
+        <md-icon>delete</md-icon>
+      حذف انتخاب شده ها 
+    </button> -->
+    <a md-raised-button color="primary"  routerLink="../add" routerLinkActive="active">
+        <md-icon>add</md-icon>
+        افزودن اسلایدشو جدید
+    </a>
+    
+    <button md-raised-button color="accent" (click)="openSearchDialog()">
+        <md-icon>search</md-icon>
+        جستجو
+    </button>
+
+    <table class="table table-hover">
+      <thead>
+          <tr>
+                <!-- <th class="text-center">
+                        <input type="checkbox" name="all" 
+                        [checked]="isAllChecked()" (change)="checkAll($event)"/>
+                    </th> -->
+                    
+              <td>نام اسلایدر</td>
+              <td>سرعت حرکت</td>
+              <td> عرض مناسب  </td>
+              <td> نسبت عرض به طول  </td>
+              <td> تعداد عکس  </td>
+              <td>زمان ماندن هرعکس</td>
+              <td>محل استفاده </td>
+              <td>عملیات</td>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let slideshow of dataSource;
+          let isOdd=odd;
+          let isEven=even"
+           [class.odd]="isOdd" [class.even]="isEven" [class.selected]="employee === selectedEmployee">
+            <!-- <td class="text-center">
+                <input type="checkbox" 
+                value="{{slideshow.SLIDERHEADERID}}" (change)="checkItem(slideshow.SLIDERHEADERID)"/>
+            </td> -->
+            <td>{{slideshow.SliderTitle}}</td>
+            <td>{{slideshow.SpeedRate}} MS</td>
+            <td>{{slideshow.MinWidth}} - {{slideshow.MaxWidth}} PX</td>
+            <td>{{slideshow.Ratio}}</td>
+            <td>{{slideshow.NumberSlides}}</td>
+            <td>{{slideshow.Duration}} MS</td>
+            <td>{{slideshow.EntityName}}</td>
+            <td>
+                <a md-raised-button  routerLink="../edit/{{slideshow.SLIDERHEADERID}}" routerLinkActive="active" color="accent">ویرایش</a>
+                <!-- <a md-raised-button  routerLink="../detail/{{slideshow.SLIDERHEADERID}}" routerLinkActive="active" color="accent">جزییات</a> -->
+                <a md-raised-button  (click)="deleteSlideshow(slideshow)" color="warn">حذف</a>
+            </td>
+
+        </tr>
+      </tbody>
+  </table>
+  <app-paging
+  (goPage)="goToPage($event)"
+  (goNext)="onNext()"
+  (goPrev)="onPrev()"
+  [pagesToShow]="3"
+  [page]="page"
+  [perPage]="limit"
+  [count]="total"></app-paging>
+    </div>
+
+
+ 

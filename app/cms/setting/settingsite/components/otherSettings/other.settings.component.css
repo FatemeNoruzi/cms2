@@ -1,0 +1,9 @@
+.other-settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.other-settings > * {
+  width: 90%;
+  margin: 25px
+}

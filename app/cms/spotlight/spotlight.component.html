@@ -1,0 +1,71 @@
+<div class="example-container mat-elevation-z8">
+    <!-- <button md-raised-button color="warn" (click)="openDialogDeleteComponent()">
+        <md-icon>delete</md-icon>
+      حذف انتخاب شده ها 
+    </button> -->
+    <a md-raised-button color="primary" routerLink="../add" routerLinkActive="active">
+        <md-icon>add</md-icon>
+        افزودن
+    </a>
+    
+    <button md-raised-button color="accent" (click)="openSearchDialog()">
+        <md-icon>search</md-icon>
+        جستجو
+    </button>
+
+    <table class="table table-hover">
+      <thead>
+          <tr>
+                <th class="text-center">
+                        <input type="checkbox" name="all" 
+                        [checked]="isAllChecked()" (change)="checkAll($event)"/>
+                    </th>
+                    
+              <td>ترتیب نمایش</td>
+              <td>عنوان</td>
+              <td>لینک</td>
+              <td>توضیحات</td>
+              <td>قابل نمایش</td>
+              <td>نوع</td>
+              <td>فایل</td>
+              <td>عملیات</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let transfer of dataSource;
+          let isOdd=odd;
+          let isEven=even"
+           [class.odd]="isOdd" [class.even]="isEven" [class.selected]="employee === selectedEmployee">
+           <td class="text-center">
+                <input type="checkbox" 
+                value="{{transfer.SPOTLIGHTID}}" (change)="checkItem(transfer.SPOTLIGHTID)"/>
+            </td>
+              <td>{{transfer.IndexShow}}</td>
+              <td>{{transfer.Title}}</td>
+              <td>{{transfer.Link}}</td>
+              <td>{{transfer.Desription}}</td>
+              <td>{{transfer.IsShow}}</td>
+              <td>{{transfer.Type}}</td>
+              <td>{{transfer.DocumentName}}</td>
+              <td>
+                    <a md-raised-button routerLink="../edit/{{transfer.SPOTLIGHTID}}" color="accent">ویرایش</a>
+                    <a md-raised-button  (click)="openDialogDeleteComponent(transfer)" color="warn">حذف</a>
+              </td>
+
+          </tr>
+      </tbody>
+  </table>
+  <app-paging
+  (goPage)="goToPage($event)"
+  (goNext)="onNext()"
+  (goPrev)="onPrev()"
+  [pagesToShow]="3"
+  [page]="page"
+  [perPage]="limit"
+  [count]="total"></app-paging>
+  <mat-paginator [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+    </div>
+

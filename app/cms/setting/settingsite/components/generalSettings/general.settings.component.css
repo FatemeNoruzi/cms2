@@ -1,0 +1,15 @@
+.seeting-tab1-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.general-setting > * {
+    width: 80%;
+    margin: 35px;
+    margin-bottom: 0px;
+  }
+  
+  .general-setting > div{
+    margin-bottom: 40px;
+  }
+  

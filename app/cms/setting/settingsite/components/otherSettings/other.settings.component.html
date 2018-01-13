@@ -1,0 +1,32 @@
+<div class="other-settings">
+        <md-input-container floatPlaceholder="never" style="margin-right:0px">
+                <md-chip-list mdPrefix>
+                  <md-chip *ngFor="let chip of chips; let i = index"
+                           color="accent">
+                    {{chip}}  
+                    <md-icon md-list-icon (click)="remove(i)">close</md-icon>
+                  </md-chip>
+                </md-chip-list>
+        </md-input-container>
+        <md-form-field>
+              <input mdInput 
+              placeholder="کلمات کلیدی"
+              [(ngModel)]="chipValue"
+              #chip
+              (keydown.enter)="add(chip.value)"
+              (keydown.backspace)="removeByKey(chip.value)">
+        </md-form-field> 
+        <md-form-field>
+          <textarea mdInput placeholder="توضیحات سئو"></textarea>
+        </md-form-field>
+    
+        <md-form-field>
+            <textarea mdInput placeholder="کد های هد"></textarea>
+        </md-form-field>
+    
+        <md-form-field>
+            <textarea mdInput placeholder="کد های فوتر"></textarea>
+        </md-form-field>
+        
+</div>
+<button md-raised-button color="primary">ذخیره</button>

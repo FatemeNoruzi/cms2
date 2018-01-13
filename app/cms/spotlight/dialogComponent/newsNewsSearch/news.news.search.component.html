@@ -1,0 +1,23 @@
+
+<h1 md-dialog-title>جستجو</h1>
+<div md-dialog-content class="dialogSearch">
+  <md-form-field>
+    <input mdInput placeholder="از تاریخ" class="form-control2"
+    name="dp2" [(ngModel)]="data.startDate" [firstDayOfWeek]="6" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()">
+  </md-form-field>
+  <md-form-field>
+    <input mdInput placeholder="تا تاریخ" class="form-control1"
+    name="dp1" [(ngModel)]="data.endDate" [firstDayOfWeek]="6" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()">
+  </md-form-field>
+  <md-form-field>
+    <input mdInput [(ngModel)]="data.title" placeholder="عنوان">
+  </md-form-field>
+
+  <md-form-field>
+      <input mdInput [(ngModel)]="data.code" placeholder="کد">
+  </md-form-field>
+</div>
+<div md-dialog-actions>
+  <button md-button [md-dialog-close]="data" tabindex="2">جستجو</button>
+  <button md-button (click)="onNoClick()" tabindex="-1">انصراف </button>
+</div>

@@ -1,0 +1,85 @@
+.messageDetails{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0px auto;
+}
+.messageDetails > div{
+  height:500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.sender{
+  float: left;
+  width: 90%
+}
+.sender > .user{
+    border: 2px #fd8569 solid;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+    margin: 25px;
+    margin-right: 0px;
+    overflow: hidden;
+    left: 25px;
+    position: fixed;
+  }
+
+  .sender  .msgDtails{
+    position: relative;
+    left: 55px;
+  }
+  .sender   .txt{
+    border: 2px #fd8569 solid;
+    float: left;
+    padding: 1px 15px;
+    border-radius: 5px;
+    margin: 25px;
+    max-width: 55%;
+    left: -90px;
+    position: relative;
+    background: #e8e5e5;
+  }
+  .sender  .icon{
+    float: left;
+    margin: 25px 0px;
+
+  }
+.reciver{
+  float: right;
+  width: 90%;
+}
+.reciverUser{
+    border: 2px rgb(163, 235, 247) solid;
+    float: right;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+    margin: 25px;
+    margin-left: 0px;
+    overflow: hidden;
+    position: fixed;
+    right:0px
+  }
+  .reciver  .txt{
+    border: 2px rgb(163, 235, 247) solid;
+    float: right;
+    padding: 1px 15px;
+    border-radius: 5px;
+    margin: 25px;
+    max-width: 55%;
+    background: #e8e5e5;
+    right: -90px;
+    position: relative;
+  }
+  .reciver  .icon {
+    float: right;
+    margin: 25px 0px;
+  }
+  .reciver  .msgDtails{
+    position: relative;
+    right: 75px;
+  }

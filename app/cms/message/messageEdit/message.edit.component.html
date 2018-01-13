@@ -1,0 +1,101 @@
+<md-tab-group>
+    <md-tab label="ارسال پاسخ">
+        <div class='messageDetails'>
+            <div style='margin-bottom:75px'>
+                    <div *ngFor="let message of dataMessage" >
+                            <div class='sender' *ngIf="message.SenderUserID == senderUser">
+                                    <div class='user' *ngIf="!message.MessageParentID">
+                                            <img src="../../../../assets/img/selected_lady.png" width="55px">
+                                    </div>
+                                    <div class='reciverUser' *ngIf="!message.MessageParentID">
+                                                <img src="../../../../assets/img/login_logo.png" width="55px">
+                                                    
+                                        </div>
+                                    <div class="msgDtails">
+                                                <div class="info">
+                                                        <div style="font-size:10px; float:left;position:relative;left:70px;direction:ltr">
+                                                                {{message.SendDate | jalali}}
+                                                                {{message.SenderName}}
+                                                        </div>
+                                                        <div class='txt'>
+                                                                {{message.MessageText}}
+                                                        </div>
+                                                </div>
+                                                        
+                                                <div class="iconGrp" *ngIf="message.MessageParentID">
+                                                        
+                                                        <div style="position: relative;right: 90px;">
+                                                                        
+                                                                <div class='icon' *ngIf="message.IsRead == 'False'">
+                                                                                        <md-icon  mdTooltip="خوانده شده" (click)="ChangeStatusMessage(message,'IsRead','True')">done</md-icon>
+                                                                                </div>
+                                                                        <div  class='icon' *ngIf="message.IsRead == 'True'">
+                                                                        <md-icon  mdTooltip="خوانده شده" (click)="ChangeStatusMessage(message,'IsRead','False')">done_all</md-icon>
+                                                                        </div> 
+                                                                        <div class='icon' *ngIf='message.IsShow == "True"'>
+                                                                        <md-icon mdTooltip="غیر قابل مشاهده" color="primary" (click)="ChangeStatusMessage(message,'IsShow','False')">visibility</md-icon>
+                                                                        </div>
+                                                                        <div class='icon' *ngIf='message.IsShow == "False" || !message.IsShow'>
+                                                                        <md-icon mdTooltip="قابل مشاهده" color="warn" (click)="ChangeStatusMessage(message,'IsShow','True')">visibility_off</md-icon>
+                                                                        </div>
+                                                        </div>
+                                                                 
+                                                </div>
+                                    </div>
+                                    
+                                    
+                            </div>
+                            <div class='reciver' *ngIf="message.SenderUserID !== senderUser">
+                                    <!-- <div class='user'>
+                                        <img src="../../../../assets/img/login_logo.png" width="55px">
+                                            
+                                    </div> -->
+                                    <div class="msgDtails">
+                                                <div>
+                                                                <div style="font-size:10px; float:right;position:relative;right:35px;direction:ltr">
+                                                                        {{message.SendDate | jalali}}
+                                                                        {{message.SenderName}}
+                                                                </div>
+                                                            <div class='txt'>
+                                                                    {{message.MessageText}}
+                                                            </div>
+                                                        </div> 
+                                                        <div style="    position: relative;
+                                                        left: 90px;">
+                                                                <div class='icon'>
+                                                                        <md-icon mdTooltip="ویرایش" (click)="editMessage(message , message.MessageText)">edit</md-icon>
+                                                                </div>
+                                                                <div class='icon'>
+                                                                        <md-icon mdTooltip="حذف" (click)="deletMessage(message.MESSAGEID)">delete</md-icon>
+                                                                </div>
+                                                                <div class='icon'*ngIf='message.IsShow == "True"'>
+                                                                        <md-icon  mdTooltip="غیرقابل مشاهده"  color="primary" (click)="ChangeStatusMessage(message,'IsShow','False')">visibility</md-icon>
+                                                                </div>
+                                                                <div class='icon' *ngIf='message.IsShow == "False" || !message.IsShow'>
+                                                                        <md-icon mdTooltip="قابل مشاهده" color="warn" (click)="ChangeStatusMessage(message,'IsShow','True')">visibility_off</md-icon>
+                                                                </div> 
+                                                        </div> 
+                                    </div>
+                                
+                                
+                            </div>
+                            
+                           </div>
+            </div>
+                
+                <md-form-field *ngIf="isClose == 'False' || editMode" style="width:97%; position:fixed; bottom:0px;">
+                        <span *ngIf='editMode'>
+                                <button md-raised-button color="warn"  (click)="closeEditMode()">
+                                        ویرایش پیام <md-icon>close</md-icon>    
+                                </button>
+                                  
+                        </span>
+                     <input mdInput placeholder="متن پیام را وارد کنید" [(ngModel)]='messageTxt'>
+                     <md-icon mdSuffix (click)="sendMessage()">send</md-icon>
+                 </md-form-field>
+        </div>
+           
+           
+        
+    </md-tab>
+</md-tab-group>

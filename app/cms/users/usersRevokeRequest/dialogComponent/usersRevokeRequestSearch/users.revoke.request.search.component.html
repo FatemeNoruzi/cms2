@@ -1,0 +1,14 @@
+
+<h1 md-dialog-title>جستجو</h1>
+<div md-dialog-content>
+  <md-form-field>
+    <input mdInput [(ngModel)]="data.number" placeholder="شماره بازاریاب">
+  </md-form-field>
+
+
+
+</div>
+<div md-dialog-actions>
+  <button md-button [md-dialog-close]="data" tabindex="2">جستجو</button>
+  <button md-button (click)="onNoClick()" tabindex="-1">انصراف</button>
+</div>

@@ -1,0 +1,50 @@
+
+<h1 md-dialog-title>جستجو</h1>
+<div md-dialog-content>
+  <!-- <md-form-field>
+    <input mdInput placeholder="از تاریخ" class="form-control2"
+    name="dp2" [(ngModel)]="data.startDate" [firstDayOfWeek]="6" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()">
+  </md-form-field>
+  <md-form-field>
+    <input mdInput placeholder="تا تاریخ" class="form-control1"
+    name="dp1" [(ngModel)]="data.endDate" [firstDayOfWeek]="6" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()">
+  </md-form-field> -->
+  <md-form-field>
+    <input mdInput [(ngModel)]="data.number" placeholder="شماره بازاریاب">
+  </md-form-field>
+
+  <md-form-field>
+      <input mdInput [(ngModel)]="data.name" placeholder="نام">
+  </md-form-field>
+
+  <md-form-field>
+      <input mdInput [(ngModel)]="data.family" placeholder=" نام خانوادگی">
+  </md-form-field>
+
+  <md-form-field>
+      <input mdInput [(ngModel)]="data.user" placeholder=" نام کاربری">
+  </md-form-field>
+
+  <md-form-field>
+      <input mdInput [(ngModel)]="data.email" placeholder="ایمیل">
+  </md-form-field>
+
+  <md-form-field>
+      <input mdInput [(ngModel)]="data.phone" placeholder="شماره همراه">
+  </md-form-field>
+
+  <md-form-field>
+      <input mdInput [(ngModel)]="data.code" placeholder="کدملی">
+  </md-form-field>
+  <!-- <md-form-field> -->
+    <md-select [(ngModel)]="data.type" placeholder="کاربر">
+      <md-option *ngFor="let type of types" [value]="type.value">
+        {{ type.viewValue }}
+      </md-option>
+    </md-select>
+  <!-- </md-form-field> -->
+</div>
+<div md-dialog-actions>
+  <button md-button [md-dialog-close]="data" tabindex="2">جستجو</button>
+  <button md-button (click)="onNoClick()" tabindex="-1">انصراف</button>
+</div>

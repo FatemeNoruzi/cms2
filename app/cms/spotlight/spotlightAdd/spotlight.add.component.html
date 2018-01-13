@@ -1,0 +1,53 @@
+<md-tab-group>
+    <md-tab label="جدید">
+        
+            <div class="news-add">
+                <md-select placeholder="انتخاب نوع " [(ngModel)]="spotlight.Type">
+                    <md-option *ngFor="let item of types" [value]="item.id" >
+                    {{ item.value }}
+                    </md-option>
+                </md-select>
+                <md-form-field *ngIf=" spotlight.Type == 'Item'">
+                    <input mdInput #myInput placeholder="انتخاب کالا " [(ngModel)]="spotlight.RefID" (input)="filterItem(myInput.value)">
+                </md-form-field>
+                    
+                <div *ngIf='selected' style="max-height:100px;overflow-y:scroll;min-width:300px">
+                    <div *ngFor="let item of filteredStates" (click)='selectedItem(item.ITEMID,item.ItemName,$event)' style="border-bottom: 1px solid gray; margin:5px">
+                        {{item.ItemName}}
+                    </div>
+                </div>
+                <label ><span> تصویر هدر</span></label>
+                <input placeholder="تصویر" type="file" #fileInput>
+                <md-form-field>
+                    <input mdInput placeholder="عنوان" [(ngModel)]="spotlight.Title">
+                </md-form-field>
+                <md-form-field>
+                        <input mdInput placeholder="شماره" [(ngModel)]="spotlight.IndexShow">
+                    </md-form-field>
+                <md-form-field>
+                    <input mdInput placeholder="توضیحات" [(ngModel)]="spotlight.Desription">
+                </md-form-field>
+                <md-form-field *ngIf=" spotlight.Type == 'Link'">
+                    <input mdInput placeholder="لینک" [(ngModel)]="spotlight.Link">
+                </md-form-field>
+            <label *ngIf="spotlight.Type == 'Content'"><span> متن وب</span></label>
+            <div  *ngIf="spotlight.Type == 'Content'" [(froalaModel)]="spotlight.WebContent" [froalaEditor]>متن</div>
+
+            <md-expansion-panel *ngIf="spotlight.Type == 'Content'">
+                <md-expansion-panel-header>
+                  <md-panel-title>
+                    پیشنمایش 
+                  </md-panel-title>
+                  <md-panel-description>
+                    مشاهده پیش نمایش
+                  </md-panel-description>
+                </md-expansion-panel-header>
+                <div [innerHTML]='ContentWeb | safeHtml'></div>
+ 
+              </md-expansion-panel>
+
+            <button md-raised-button color="primary" (click)="AddSpotLight()">ذخیره</button>
+            </div>
+         
+    </md-tab>
+</md-tab-group>

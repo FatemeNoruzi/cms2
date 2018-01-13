@@ -1,0 +1,101 @@
+<div class="example-container mat-elevation-z8">
+    <button md-raised-button color="warn" (click)="openDialogDeleteComponent()">
+        <md-icon>delete</md-icon>
+      حذف انتخاب شده ها 
+    </button>
+    <a md-raised-button color="primary" (click)='openDialogUploadFileComponent()'>
+        <md-icon>add</md-icon>
+        افزودن فایل جدید
+    </a>
+    
+    <button md-raised-button color="accent" (click)="openSearchDialog()">
+        <md-icon>search</md-icon>
+        جستجو
+    </button>
+
+    <table class="table table-hover">
+      <thead>
+          <tr>
+                <th class="text-center">
+                        <input type="checkbox" name="all" 
+                        [checked]="isAllChecked()" (change)="checkAll($event)"/>
+                    </th>
+                    
+              <td>نام فایل</td>
+              <td>پسوند</td>
+              <td>نوع فایل </td>
+              <td>محل استفاده </td>
+              <td>تاریخ ایجاد</td>
+              <td>فایل</td>
+              <td>عملیات</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let transfer of dataSource;
+          let isOdd=odd;
+          let isEven=even"
+           [class.odd]="isOdd" [class.even]="isEven" [class.selected]="employee === selectedEmployee">
+           <td class="text-center">
+                <input type="checkbox" 
+                value="{{transfer.CONTENTID}}" (change)="checkItem(transfer.CONTENTID)"/>
+            </td>
+              <td>{{transfer.DocumentName}}</td>
+              <td>{{transfer.DocumentExtension}}</td>
+              <td>{{transfer.TypeName}}</td>
+              <td>{{transfer.DisplayNameEntity}} / {{transfer.DocumentTypeTitle}}</td>
+              <td>{{transfer.CreatedOn}}</td>
+              <td>
+                    <div [ngSwitch]="transfer.TypeName">
+                            <div *ngSwitchCase="'Video'">
+                                    <video width="100" controls>
+                                            <source src="{{imageUrl}}{{transfer.DOCUMENTID}}/{{transfer.DocumentExtension}}" type="video/mp4">
+                                            Your browser does not support HTML5 video.
+                                        </video>
+                            </div>
+                            <div *ngSwitchCase="'Sound'">
+                                    <audio controls>
+                                            <source src="{{imageUrl}}{{transfer.DOCUMENTID}}/{{transfer.DocumentExtension}}" type="audio/mpeg">
+                                            Your browser does not support the audio tag.
+                                        </audio> 
+                            </div>
+                            <div *ngSwitchCase="'Image'">
+                                    <img src="{{imageUrl}}{{transfer.DOCUMENTID}}/{{transfer.DocumentExtension}}" alt="Smiley face" style ="max-width: 100px;"/>
+                            </div>
+                            </div>
+                <!-- <div *ngIf='transfer.DocumentName'>
+                    <img src="{{imageUrl}}{{transfer.DocumentName}}/{{transfer.DocumentExtension}}" alt="Smiley face" style ="max-width: 100px;"/>
+                </div>
+                <div *ngIf='!transfer.DocumentName'>
+                    <img src="../../../assets/img/login_logo.png" alt="Smiley face" style ="max-width: 100px;"/>
+                </div> -->
+                
+                </td>
+              <!-- <td>{{transfer.FromDate}}</td> -->
+              <!-- <td>
+                    
+                  <div class='center' *ngIf="transfer.Status"><button md-raised-button color="warn">غیرفعال</button></div>
+                  <div class='center'><button md-raised-button color="primary">فعال</button></div>
+                </td> -->
+              <td>
+                    <a md-raised-button (click)='openDialogUpdateFileComponent(transfer)' color="accent">ویرایش</a>
+              </td>
+
+          </tr>
+      </tbody>
+  </table>
+  <app-paging
+  (goPage)="goToPage($event)"
+  (goNext)="onNext()"
+  (goPrev)="onPrev()"
+  [pagesToShow]="3"
+  [page]="page"
+  [perPage]="limit"
+  [count]="total"></app-paging>
+  <mat-paginator [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+    </div>
+
+
+ 

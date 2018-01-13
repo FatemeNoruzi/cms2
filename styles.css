@@ -1,0 +1,204 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html{
+    height: 100%;
+}
+body{
+    min-height: 100%;
+}
+.col-four{
+    width:22%;
+    float: right;
+    margin: 15px;
+}
+
+
+
+.databox.databox-graded{
+    background-image: linear-gradient(to left, #ddd, #fff);
+}
+
+
+
+.databox.databox-shadowed {
+    /* -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .2); */
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+}
+
+.databox .databox-right {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0;
+    width: 65px;
+    height: 65px;
+    padding: 20px;
+    color: #2dc3e8;
+    float: right;
+}
+
+.bg-themesecondary {
+    background-color: #fb6e52 !important;
+}
+
+.bg-themethirdcolor {
+    background-color: #ffce55 !important;
+}
+
+.bg-themeprimary {
+    background-color: #2dc3e8 !important;
+}
+
+.databox .databox-piechart {
+    padding-top: 0;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+}
+.easyPieChart {
+    position: relative;
+    text-align: center;
+}
+.white {
+    color: #fff !important;
+}
+
+.databox .databox-left {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    -lh-property: 0;
+    width: -webkit-calc(100% - 65px);
+    width: -moz-calc(100% - 65px);
+    width: calc(100% - 65px);
+    height: 65px;
+    color: #555;
+    padding: 5px 10px;
+}
+
+.databox .databox-number {
+    display: block;
+    font-size: 17px;
+    line-height: 26px;
+    margin: 2px;
+    position: relative;
+    font-family: "Droid Arabic Kufi", "WYekan" 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+    font-weight: 300;
+}
+.themesecondary {
+    color: #fb6e52 !important;
+}
+
+.themethirdcolor {
+    color: #ffce55 !important;
+}
+
+.bg-themeprimary {
+    color: #2dc3e8 !important;
+}
+.databox .databox-text {
+    display: block;
+    font-size: 11px;
+    margin: 4px 0 2px;
+    position: relative;
+}
+.darkgray {
+    color: #999 !important;
+}
+.databox .databox-stat {
+    display: inline-block;
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    padding: 2px 5px;
+}
+
+
+
+input[type="color"] {
+    font: inherit;
+    background: 0 0;
+    color: currentColor;
+    border: none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+
+.widget {
+    padding: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: -1px 0 10px 1px rgba(0, 0, 0, .3);
+    margin: 3px 0 30px 0;
+}
+
+.widget-header {
+    position: relative;
+    min-height: 35px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+    color: #555;
+    padding-right: 12px;
+    text-align: right;
+}
+.widget-body {
+    background-color: #fbfbfb;
+    -webkit-box-shadow: -1px 0 10px 1px rgba(0, 0, 0, .3);
+    -moz-box-shadow: -1px 0 10px 1px rgba(0, 0, 0, .3);
+    box-shadow: -1px 0 10px 1px rgba(0, 0, 0, .3);
+    padding: 12px;
+}
+
+.tree > .value-container{
+    margin: 0 0 3px !important;
+    padding: 8px !important;
+    background-color: #333 !important;
+    color: rgb(151, 87, 87) !important;
+    list-style: none !important;
+  }
+  
+  ul.tree > li > div {
+    margin: 0 0 3px !important;
+    padding: 8px !important;
+    background-color: #333 !important;
+    color: rgb(255, 255, 255) !important;
+    list-style: none !important;
+  }
+
+  li {
+    list-style: none;
+}
+  
+  .value-container > div {
+    /* float: right !important; */
+    display: inline !important;
+  }
+
+  .node-template {
+    display: inline;
+    float: right;
+}
+
+.node-menu {
+    border: 2px solid;
+    display: inline-table;
+}
+
+md-dialog-container{
+    direction: rtl;
+}

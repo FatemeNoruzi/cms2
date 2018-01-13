@@ -1,0 +1,56 @@
+
+<h1 md-dialog-title>جستجو</h1>
+<div md-dialog-content class="dialogAdd">
+  <md-form-field>
+    <input mdInput [(ngModel)]="data.Description" placeholder="متن">
+  </md-form-field>
+
+  <label><span>رنگ پس زمینه</span></label>
+  <input [(ngModel)]="data.BackColor" placeholder="رنگ پس زمینه" type="color" #BackColor>
+  <label><span> شفافیت </span></label>
+  <input type="range" id="alpha" (input)="updateBColorAlpha(BCAvalue.value);" [(ngModel)]="data.BackColorAlpha" min="0" max="1" step="0.1" value="1" #BCAvalue>
+
+
+  <label><span> رنگ متن </span></label>
+  <!-- <input [(ngModel)]="data.ForeColor" placeholder="رنگ پس زمینه" type="color"> -->
+  <input type="color" id="color" [(ngModel)]="data.ForeColor" placeholder="رنگ پس زمینه" #ForeColor>
+  <label><span> شفافیت </span></label>
+  <input type="range" id="alpha" (input)="updateFColorAlpha(FCAvalue.value);" [(ngModel)]="data.ForeColorAlpha" min="0" max="1" step="0.1" value="1" #FCAvalue>
+
+
+  <label><span> لینک مورد نظر </span></label>
+  <md-radio-group [(ngModel)]="Radio">
+    <md-radio-button style ="width:100%" value="1">لینک داخلی</md-radio-button>
+    <md-radio-button style ="width:100%" value="2">لینک خارجی</md-radio-button>
+  </md-radio-group>
+  <md-form-field *ngIf="Radio == 2">
+      <input [(ngModel)]="data.Link" mdInput placeholder="لینک">
+  </md-form-field>
+  <div *ngIf="Radio == 1">
+    <md-form-field>
+      <input mdInput #myInput placeholder="انتخاب کالا " [(ngModel)]="Ref" (input)="filterItem(myInput.value)">
+  </md-form-field>
+
+  <div *ngIf='selected' style="max-height:100px;overflow-y:scroll;min-width:300px">
+      <div *ngFor="let item of filteredStates" (click)='selectedItem(item.ITEMID,item.ItemName,$event)' style="border-bottom: 1px solid gray; margin:5px">
+          {{item.ItemName}}
+    </div>
+  </div>
+  </div>
+  
+  
+  <!-- <md-select placeholder="Favorite food">
+      <md-option *ngFor="let food of filteredStates" [value]="food.ItemName">
+        {{ food.ItemName }}
+      </md-option>
+    </md-select> -->
+  
+
+  <md-form-field>
+    <input mdInput type="number" [(ngModel)]="data.IndexShow" placeholder="ترتیب نمایش">
+</md-form-field>
+</div>
+<div md-dialog-actions>
+  <button md-button [md-dialog-close]="data" tabindex="2">جستجو</button>
+  <button md-button (click)="onNoClick()" tabindex="-1">انصراف </button>
+</div>

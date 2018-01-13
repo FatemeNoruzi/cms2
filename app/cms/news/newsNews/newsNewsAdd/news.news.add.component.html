@@ -1,0 +1,71 @@
+<md-tab-group>
+    <md-tab label="خبرجدید">
+        
+            <div class="news-add">
+            <md-form-field>
+                <input mdInput placeholder="عنوان" [(ngModel)]="dataNews.ContentTitle">
+            </md-form-field>
+            <!-- <md-form-field>
+                <input mdInput placeholder="از تاریخ" class="form-control1"
+                name="dp1" [(ngModel)]="dataNews.FromDate" [firstDayOfWeek]="6" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()">
+            </md-form-field>
+            <md-form-field>
+                <input mdInput placeholder=" تا تاریخ" class="form-control2" value="{{dateout}}"
+                name="dp2" [(ngModel)]="dataNews.ToDate" [firstDayOfWeek]="6" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()">
+            </md-form-field> -->
+            <label><span>وضعیت</span></label>
+            <md-radio-group [(ngModel)]="dataNews.StatusShow">
+                <md-radio-button value="True">فعال</md-radio-button>
+                <md-radio-button value="False">غیر فعال</md-radio-button>
+            </md-radio-group>
+            <label><span> تصویر هدر</span></label>
+            <input  placeholder="تصویر" type="file" #fileInput>
+            <label><span> فایل متن </span></label>
+            <input  placeholder="تصویر" type="file">
+            <label><span> متن وب</span></label>
+            <div [(froalaModel)]="dataNews.ContentWeb" [froalaEditor]>متن</div>
+
+            <md-expansion-panel>
+                <md-expansion-panel-header>
+                  <md-panel-title>
+                    پیشنمایش 
+                  </md-panel-title>
+                  <md-panel-description>
+                    مشاهده پیش نمایش
+                  </md-panel-description>
+                </md-expansion-panel-header>
+                <div [innerHTML]='dataNews.ContentWeb | safeHtml'></div>
+ 
+              </md-expansion-panel>
+
+            
+            <label><span>متن موبایل </span></label>
+            <md-form-field>
+                <textarea mdInput placeholder="متن موبایل" [(ngModel)]="dataNews.ContentText"></textarea>
+            </md-form-field>
+            <md-form-field>
+                <input mdInput placeholder="عنوان سئو">
+            </md-form-field>
+        
+            <md-input-container floatPlaceholder="never" style="margin-right:0px">
+                <md-chip-list mdPrefix>
+                  <md-chip *ngFor="let chip of chips; let i = index"
+                           color="accent">
+                    {{chip}}  
+                    <md-icon md-list-icon (click)="remove(i)">close</md-icon>
+                  </md-chip>
+                </md-chip-list>
+            </md-input-container>
+          <md-form-field>
+              <input mdInput 
+              placeholder="کلمات کلیدی سئو"
+              [(ngModel)]="chipValue"
+              #chip
+              (keydown.enter)="add(chip.value)"
+              (keydown.backspace)="removeByKey(chip.value)">
+            </md-form-field>
+            <button md-raised-button color="primary" (click)="addNews()">ذخیره</button>
+            </div>
+        
+    </md-tab>
+</md-tab-group>

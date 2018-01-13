@@ -1,0 +1,6 @@
+md-row.mat-row.example-selected-row {
+    background: #eee;
+}
+md-row.mat-row:hover {
+    background: #eee;
+}

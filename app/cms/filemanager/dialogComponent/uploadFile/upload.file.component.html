@@ -1,0 +1,49 @@
+<div md-dialog-content class="dialogUpload">
+        <h1 md-dialog-title>افزودن</h1>
+        <md-select placeholder="محل استفاده" [(ngModel)]="entitySelected" (change)=GetAllType(entitySelected)>
+            <md-option *ngFor="let item of entity" [value]="item.EntityName" >
+                {{item.DisplayName}}
+            </md-option>
+        </md-select>
+        <md-select placeholder="نوع"  [(ngModel)]="selectedType" (change)=SelectType(selectedType)>
+            <md-option *ngFor="let item of types" [value]="item">
+                {{ item.DocumentTypeTitle}}
+            </md-option>
+        </md-select>
+        <!-- <md-select placeholder="مورداستفاده" [(ngModel)]="selectedItem" (change)=SelectItem(selectedItem)>
+            <md-option *ngFor="let item of items" [value]="item.KeyID">
+                {{item.keyValue}}
+            </md-option>
+        </md-select> -->
+
+    <!-- <div [ngSwitch]="data.updateObj.TypeName">
+        <div *ngSwitchCase="'Video'">
+                <video width="100" controls>
+                        <source [src]=url type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+        </div>
+        <div *ngSwitchCase="'Sound'">
+                <audio controls>
+                        <source [src]=url type="audio/mpeg">
+                        Your browser does not support the audio tag.
+                    </audio> 
+        </div>
+        <div *ngSwitchCase="'Image'">
+                <img [src]=url alt="Smiley face" style ="max-width: 100px;"/>
+        </div>
+    </div> -->
+    <!-- <md-form-field>
+        <input mdInput placeholder="نام فایل "  [(ngModel)]="entitySelected">
+    </md-form-field> -->
+    <label><span> فایل </span></label>
+    <input  placeholder="فایل" type="file" #fileInput (change)="checkEx($event)">
+    
+      <img [src]=url #img  (change)="imgChange()">
+      <p #h></p>
+      <p #w></p>
+</div>
+<div md-dialog-actions>
+  <button md-button [md-dialog-close]=data tabindex="2"> افزودن </button>
+  <button md-button (click)="onNoClick()" tabindex="-1">انصراف </button>
+</div>

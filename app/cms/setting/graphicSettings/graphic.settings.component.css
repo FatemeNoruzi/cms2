@@ -1,0 +1,21 @@
+ .content-settings-color {
+  flex-direction: column;
+}
+
+.content-settings-color > md-form-field {
+  width: 35%;
+  margin: 0px 35px
+}
+
+.content-settings-color > label {
+  width: 100%;
+  margin: 30px 0px 0px;
+}
+.content-settings-img {
+  flex-direction: column;
+  display: flex;
+}
+
+.content-settings-img > * {
+  width: 100%;
+}

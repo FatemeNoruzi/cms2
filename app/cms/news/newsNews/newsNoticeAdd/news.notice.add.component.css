@@ -1,0 +1,9 @@
+.notice-add {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .notice-add > * {
+    width: 90%;
+    margin: 15px
+  }

@@ -1,0 +1,9 @@
+.dialogSearch {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dialogSearch > * {
+    width: 90%;
+  }

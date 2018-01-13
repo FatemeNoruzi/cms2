@@ -1,0 +1,27 @@
+<md-tab-group>
+    <md-tab label="پیام جدید">
+        
+            <div class="message-add">
+            <md-form-field>
+                <input mdInput placeholder="شماره بازریاب">
+            </md-form-field>
+
+            <md-form-field>
+                <input mdInput placeholder="عنوان ">
+            </md-form-field>
+            
+            <md-select placeholder="نوع پیام">
+                <md-option *ngFor="let type of types" [value]="type.value">
+                  {{ type.viewValue }}
+                </md-option>
+            </md-select>
+
+            <md-form-field>
+                <textarea mdInput placeholder="متن پیام"></textarea>
+            </md-form-field>
+
+            <button md-raised-button color="primary">ارسال </button>
+            </div>
+        
+    </md-tab>
+</md-tab-group>

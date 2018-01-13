@@ -1,0 +1,102 @@
+<div class="example-container mat-elevation-z8">
+    <button md-raised-button color="warn" (click)="openDialogDeleteComponent()">
+        <md-icon>delete</md-icon>
+      حذف انتخاب شده ها 
+    </button>
+    <a md-raised-button color="primary" routerLink="../add" routerLinkActive="active">
+        <md-icon>add</md-icon>
+        ارسال پیام
+    </a>
+
+    
+    <button md-raised-button color="accent" (click)="openSearchDialog()">
+        <md-icon>search</md-icon>
+        جستجو
+    </button>
+
+
+    <table class="table table-hover">
+      <thead>
+          <tr>
+                <th class="text-center">
+                        <input type="checkbox" name="all" 
+                        [checked]="isAllChecked()" (change)="checkAll($event)"/>
+                    </th>
+                    
+              <td>عنوان پیام</td>
+              <td>کد پیام</td>
+              <td>متن پیام</td>
+              <td>تاریخ</td>
+              <td>قابل مشاهده</td>
+              <td>خوانده شده</td>
+              <td>بسته شده</td>
+              <td>فرستنده</td>
+              <td>گیرنده</td>
+              <td>عملیات</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let transfer of dataSource;
+          let isOdd=odd;
+          let isEven=even"
+           [class.odd]="isOdd" [class.even]="isEven" [class.selected]="employee === selectedEmployee">
+                <td class="text-center">
+                    <input type="checkbox" 
+                    value="{{transfer.MESSAGEID}}" (change)="checkItem(transfer.MESSAGEID)"/>
+                </td>
+                <td><p>{{transfer.MessageTitle | limitTo:20}}</p></td>
+                <td>{{transfer.MessageCode}}</td>
+                <td>{{transfer.MessageText | limitTo:20}}</td>
+                <td>{{transfer.SendDate | jalali}}</td>
+                <td>
+                    <div *ngIf='transfer.IsShow == "True"'>
+                        <md-icon color="primary" (click)="ChangeStatusMessage(transfer,'IsShow','False')">visibility</md-icon>
+                    </div>
+                    <div *ngIf='transfer.IsShow == "False"'>
+                        <md-icon color="warn" (click)="ChangeStatusMessage(transfer,'IsShow','True')">visibility_off</md-icon>
+                    </div>
+                </td>
+              <td>
+                <div *ngIf='transfer.IsRead == "True"' >
+                    <md-icon color="primary" (click)="ChangeStatusMessage(transfer,'IsRead','False')">done</md-icon>
+                </div>
+                <div *ngIf='transfer.IsRead == "False"'>
+                    <md-icon color="warn" (click)="ChangeStatusMessage(transfer,'IsRead','True')">close</md-icon>
+                </div>
+
+                </td>
+                <td>
+                  
+                    <div *ngIf='transfer.IsClose == "True"'>
+                        <md-icon color="primary" (click)="ChangeStatusMessage(transfer,'IsClose','False')">done</md-icon>
+                    </div>
+                    <div *ngIf='transfer.IsClose == "False"'>
+                        <md-icon color="warn" (click)="ChangeStatusMessage(transfer,'IsClose','True')">close</md-icon>
+                    </div>
+                </td>
+              <td>
+                    {{transfer.SenderName | limitTo:20}}  
+                  <!-- <div class='center' *ngIf="transfer.Status"><button md-raised-button color="warn">غیرفعال</button></div>
+                  <div class='center'><button md-raised-button color="primary">فعال</button></div>
+                </td> -->
+                
+                </td>
+              <td>
+                    {{transfer.RecevierName }}
+                <!-- <a md-raised-button routerLink="../edit/{{transfer.CONTENTID}}" color="accent">ویرایش</a> -->
+              </td>
+              <td>
+                <a md-raised-button routerLink="../edit/{{transfer.MESSAGEID}}" color="accent">مشاهده</a>
+              </td>
+
+          </tr>
+      </tbody>
+  </table>
+  <app-paging
+  (goPage)="goToPage($event)"
+  (goNext)="onNext()"
+  (goPrev)="onPrev()"
+  [pagesToShow]="3"
+  [page]="page"
+  [perPage]="limit"
+  [count]="total"></app-paging>

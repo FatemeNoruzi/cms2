@@ -1,0 +1,174 @@
+<div>
+<md-sidenav-container class="example-sidenav-fab-container">
+    <button md-mini class="example-fab" (click)="sidenav.toggle()">
+        <md-icon>menu</md-icon>
+    </button>
+    <md-sidenav #sidenav mode="side" opened="true">
+        
+        <div class="example-scrolling-content">
+          <md-accordion class="example-headers-align">
+                  <md-list  class='base'>  
+                    <md-list-item>
+                      <md-icon md-list-icon>show_chart</md-icon>
+                      <h4 md-line ><a routerLink="./chart" routerLinkActive="active">آمار گزارشات </a></h4>
+                    </md-list-item>
+                  </md-list>
+            <md-expansion-panel>
+              <md-expansion-panel-header> 
+                <md-panel-title>
+                  <md-icon md-list-icon>dashboard</md-icon>
+                    مدیریت وب سایت
+                </md-panel-title>
+                
+              </md-expansion-panel-header>
+              <md-list>  
+                <md-list-item>
+                  <md-icon md-list-icon>settings</md-icon>
+                  <a routerLink="./setting" routerLinkActive="active">
+                    <h5 md-line> تنظیمات </h5>
+                  </a>
+                </md-list-item>
+                <md-list-item>
+                    <md-icon md-list-icon>chrome_reader_mode</md-icon>
+                      <a routerLink="./news" routerLinkActive="active">
+                        <h5 md-line> آرشیو خبر </h5>
+                      </a>
+                  </md-list-item>
+                  <md-list-item>
+                      <md-icon md-list-icon>book</md-icon>
+                      <a routerLink="./education" routerLinkActive="active">
+                        <h5 md-line> محتوای آموزشی </h5>
+                      </a>
+                    </md-list-item>
+              </md-list>
+            </md-expansion-panel>
+
+            <md-expansion-panel>
+              <md-expansion-panel-header> 
+                <md-panel-title>
+                  <md-icon md-list-icon>sms</md-icon>
+                    پیام ها
+                </md-panel-title>
+                
+              </md-expansion-panel-header>
+              <md-list>  
+                <md-list-item>
+                  <md-icon md-list-icon>sms</md-icon>
+                  <a routerLink="./message" routerLinkActive="active">
+                    <h5 md-line> ارسال پیام</h5>
+                  </a>
+                </md-list-item>
+                <md-list-item>
+                    <md-icon md-list-icon>sms</md-icon>
+                      <a routerLink="./news" routerLinkActive="active">
+                        <h5 md-line> ارسال پیامک </h5>
+                      </a>
+                  </md-list-item>
+                  <md-list-item>
+                      <md-icon md-list-icon>sms</md-icon>
+                      <a routerLink="./discontent" routerLinkActive="active">
+                        <h5 md-line> نارضایتی ها </h5>
+                      </a>
+                    </md-list-item>
+              </md-list>
+            </md-expansion-panel>
+
+            <md-expansion-panel>
+              <md-expansion-panel-header> 
+                <md-panel-title>
+                  <md-icon md-list-icon>group</md-icon>
+                    بازاریاب
+                </md-panel-title>
+                
+              </md-expansion-panel-header>
+              <md-list>  
+                <md-list-item>
+                  <md-icon md-list-icon>group</md-icon>
+                  <a routerLink="./users" routerLinkActive="active">
+                    <h5 md-line> لیست بازاریابان</h5>
+                  </a>
+                </md-list-item>
+                <md-list-item>
+                    <md-icon md-list-icon>group</md-icon>
+                      <a routerLink="./users/revoke" routerLinkActive="active">
+                        <h5 md-line> بازاریابان لغو 80 روز </h5>
+                      </a>
+                  </md-list-item>
+                  <md-list-item>
+                      <md-icon md-list-icon>group</md-icon>
+                      <a routerLink="./users/revoke-request" routerLinkActive="active">
+                        <h5 md-line> درخواست های لغو </h5>
+                      </a>
+                    </md-list-item>
+                    <md-list-item>
+                      <md-icon md-list-icon>group</md-icon>
+                      <a routerLink="./users/nocode" routerLinkActive="active">
+                        <h5 md-line> بازاریابان بدون کد صنعت</h5>
+                      </a>
+                    </md-list-item>
+                    <md-list-item>
+                      <md-icon md-list-icon>group</md-icon>
+                      <a routerLink="./discontent" routerLinkActive="active">
+                        <h5 md-line> مدارک ارسالی </h5>
+                      </a>
+                    </md-list-item>
+                    <md-list-item>
+                      <md-icon md-list-icon>group</md-icon>
+                      <a routerLink="./discontent" routerLinkActive="active">
+                        <h5 md-line> شماره حساب کاربران </h5>
+                      </a>
+                    </md-list-item>
+                    <md-list-item>
+                      <md-icon md-list-icon>group</md-icon>
+                      <a routerLink="./discontent" routerLinkActive="active">
+                        <h5 md-line> کارت هوشمند </h5>
+                      </a>
+                    </md-list-item>
+                    <md-list-item>
+                      <md-icon md-list-icon>group</md-icon>
+                      <a routerLink="./discontent" routerLinkActive="active">
+                        <h5 md-line> کد تحویل گیرنده </h5>
+                      </a>
+                    </md-list-item>
+              </md-list>
+            </md-expansion-panel>
+
+            <md-list class='base'>  
+                <md-list-item>
+                  <md-icon md-list-icon>folder</md-icon>
+                  <a routerLink="./filemanager" routerLinkActive="active">
+                    <h5 md-line> مدیریت فایل  </h5>
+                  </a>
+                  
+                </md-list-item>
+              </md-list>
+              <md-list class='base'>  
+                <md-list-item>
+                  <md-icon md-list-icon>slideshow</md-icon>
+                  <a routerLink="./slideshow" routerLinkActive="active">
+                    <h5 md-line> مدیریت اسلایدر  </h5>
+                  </a>
+                  
+                </md-list-item>
+              </md-list>
+              <md-list class='base'>  
+                <md-list-item>
+                  <md-icon md-list-icon>lightbulb_outline</md-icon>
+                  <a routerLink="./spotlight" routerLinkActive="active">
+                    <h5 md-line> در کانون توجه </h5>
+                  </a>
+                  
+                </md-list-item>
+              </md-list>
+          
+          </md-accordion>
+          
+          
+        </div>
+      </md-sidenav>
+  <div class="example-scrolling-content bodyTab" style="height:687px">
+      <router-outlet></router-outlet>
+  </div>
+  
+</md-sidenav-container>
+</div>

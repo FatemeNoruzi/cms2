@@ -1,0 +1,39 @@
+<div class="seeting-tab1-container">
+    <md-form-field>
+        <input mdInput placeholder="عنوان">
+    </md-form-field>
+      
+    <md-form-field>
+      <textarea mdInput placeholder="متن کادر نارنجی پایین صفحه"></textarea>
+    </md-form-field>
+
+    <md-form-field>
+        <input mdInput placeholder="مالیات بر ارزش افزوده">
+    </md-form-field>
+
+    <md-form-field>
+        <input mdInput placeholder="عوارض">
+    </md-form-field>
+
+    <md-form-field>
+        <textarea mdInput placeholder="نقشه گوگل"></textarea>
+    </md-form-field>
+    <md-input-container floatPlaceholder="never" style="margin-right:0px">
+        <md-chip-list mdPrefix>
+          <md-chip *ngFor="let chip of chips; let i = index"
+                   color="accent">
+            {{chip}}  
+            <md-icon md-list-icon (click)="remove(i)">close</md-icon>
+          </md-chip>
+        </md-chip-list>
+    </md-input-container>
+  <md-form-field>
+      <input mdInput 
+      placeholder="شماره موبایل مدیران"
+      [(ngModel)]="chipValue"
+      #chip
+      (keydown.enter)="add(chip.value)"
+      (keydown.backspace)="removeByKey(chip.value)">
+    </md-form-field>
+    <md-checkbox>فعال بودن فروشگاه </md-checkbox>
+    <md-checkbox>فعال یودن ثبت نام</md-checkbox>

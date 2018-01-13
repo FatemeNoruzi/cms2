@@ -1,0 +1,14 @@
+
+  .even{
+    background-color: rgba(138, 138, 138, 0.075)
+  }
+  span.statusT {
+    padding: 2px 5px;
+    background: #00f738;
+    color: white;
+  }
+  span.statusF {
+    padding: 2px 5px;
+    background: #f10;
+    color: white;
+  }

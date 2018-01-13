@@ -1,0 +1,30 @@
+export class Item {
+  BrandID  = '' ;
+  ITEMID  = '' ;
+  Description  = '' ;
+  ItemLenght  = '' ;
+  ItemNetWeight  = '' ;
+  ItemMaximum  = '' ;
+  ItemCode  = '' ;
+  ItemUnitID  = '' ;
+  ItemWeight  = '' ;
+  ItemWidth  = '' ;
+  ItemGroupID  = '' ;
+  ItemHeight  = '' ;
+  ItemName  = '' ;
+  Path  = '' ;
+  ItemPriceName  = '' ;
+  WareHouseQuantity  = '' ;
+  TotalQuantity  = '' ;
+  WareHouseID  = '' ;
+  ItemEnglishName  = '' ;
+  ItemRatio  = '' ;
+  ItemLike  = '' ;
+  IsSpecialOffer  = '' ;
+  IsNewest  = '' ;
+  IsCategoriesIndex  = '' ;
+  LinkSite  = '' ;
+  IndexShow  = '' ;
+  DocumentName = '';
+  DocumentExtension = '';
+}

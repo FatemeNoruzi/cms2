@@ -1,0 +1,8 @@
+.slideshow-add {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .slideshow-add > * {
+    width: 90%;
+  }

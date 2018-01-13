@@ -1,0 +1,10 @@
+.seeting-tab1-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.seeting-tab1-container > * {
+    width: 90%;
+    margin: 25px
+  }
+  

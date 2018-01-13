@@ -1,0 +1,68 @@
+<div>
+  <div class="widget">
+    <div class="widget-header"> جستجو </div>
+    <div class="widget-body">
+      <md-form-field>
+        <input mdInput placeholder="از تاریخ" class="form-control2"
+        name="dp2" [(ngModel)]="model2" [firstDayOfWeek]="6" ngbDatepicker #d2="ngbDatepicker" (click)="d2.toggle()">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput placeholder="تا تاریخ" class="form-control1"
+        name="dp1" [(ngModel)]="model1" [firstDayOfWeek]="6" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()">
+      </md-form-field>
+      <button md-raised-button>جستجو </button>
+      <form class="form-inline">
+        <div class="form-group">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="widget">
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+
+  <div class="widget">
+    <div class="example-container md-elevation-z8">
+      <md-table #table
+       [dataSource]="dataSource" mdSort>
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Position Column -->
+        <ng-container mdColumnDef="date">
+          <md-header-cell *mdHeaderCellDef md-sort-header> تاریخ </md-header-cell>
+          <md-cell *mdCellDef="let element"> {{element.date}} </md-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container mdColumnDef="number">
+          <md-header-cell *mdHeaderCellDef md-sort-header> تعداد بازدید </md-header-cell>
+          <md-cell *mdCellDef="let element"> {{element.number}} </md-cell>
+        </ng-container>
+    
+        <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+      </md-table>
+      <md-paginator #paginator
+      [length]="exampleDatabase.data.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 25, 100]">
+</md-paginator>
+    </div>
+  </div>
+
+</div>
+
+

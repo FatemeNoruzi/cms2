@@ -1,0 +1,80 @@
+<div class="example-container mat-elevation-z8">
+    <button md-raised-button color="warn" (click)="openDialogDeleteComponent()">
+        <md-icon>delete</md-icon>
+      حذف انتخاب شده ها 
+    </button>
+    <a md-raised-button color="primary" routerLink="../../news/add-news" routerLinkActive="active">
+        <md-icon>add</md-icon>
+        خبر جدید
+    </a>
+    <a md-raised-button color="primary" routerLink="../../news/add-notice" routerLinkActive="active">
+      <md-icon>add</md-icon>
+      اخطاریه جدید
+    </a>
+    <a md-raised-button color="primary" routerLink="../../news/add-publish" routerLinkActive="active">
+      <md-icon>add</md-icon>
+      اطلاعیه جدید
+    </a>
+    
+    <button md-raised-button color="accent" (click)="openSearchDialog()">
+        <md-icon>search</md-icon>
+        جستجو
+    </button>
+
+    <table class="table table-hover">
+      <thead>
+          <tr>
+                <th class="text-center">
+                        <input type="checkbox" name="all" 
+                        [checked]="isAllChecked()" (change)="checkAll($event)"/>
+                    </th>
+                    
+              <td>کد</td>
+              <td>عنوان</td>
+              <td>نویسنده</td>
+              <td>محتوا</td>
+              <td>تصویر</td>
+              <td>تاریخ</td>
+              <td>وضعیت</td>
+              <td>عملیات</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let transfer of dataSource;
+          let isOdd=odd;
+          let isEven=even"
+           [class.odd]="isOdd" [class.even]="isEven" [class.selected]="employee === selectedEmployee">
+           <td class="text-center">
+                <input type="checkbox" 
+                value="{{transfer.CONTENTID}}" (change)="checkItem(transfer.CONTENTID)"/>
+            </td>
+              <td><p>{{transfer.ContentCode}}</p></td>
+              <td>{{transfer.ContentTitle | limitTo:20}}</td>
+              <td>{{transfer.CreatedBy}}</td>
+              <td>{{transfer.ContentText | limitTo:50}}</td>
+              <td>
+                <div *ngIf='transfer.DocumentName'>
+                    <img src="{{imageUrl}}{{transfer.DocumentName}}/{{transfer.DocumentExtension}}" alt="Smiley face" style ="max-width: 100px;"/>
+                </div>
+                <div *ngIf='!transfer.DocumentName'>
+                    <img src="../../../assets/img/login_logo.png" alt="Smiley face" style ="max-width: 100px;"/>
+                </div>
+                
+                </td>
+              <td>{{transfer.FromDate}}</td>
+              <td>
+                    
+                  <div class='center' *ngIf="transfer.Status"><button md-raised-button color="warn">غیرفعال</button></div>
+                  <div class='center'><button md-raised-button color="primary">فعال</button></div>
+                </td>
+              <td>
+                    <a md-raised-button routerLink="../edit/{{transfer.CONTENTID}}" color="accent">ویرایش</a>
+              </td>
+
+          </tr>
+      </tbody>
+  </table>
+    </div>
+
+
+ 

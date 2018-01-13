@@ -1,0 +1,17 @@
+<md-tab-group>
+    <md-tab label="اطلاعیه جدید">
+        
+            <div class="notice-add">
+            <md-form-field>
+                <input mdInput placeholder="همه/شماره بازاریاب">
+            </md-form-field>
+            <md-form-field>
+                <input mdInput placeholder="عنوان">
+            </md-form-field>
+            <label><span>متن</span></label>
+            <div [(froalaModel)]="editorContent" [froalaEditor]>متن</div>
+            <button md-raised-button color="primary">ذخیره</button>
+            </div>
+        
+    </md-tab>
+</md-tab-group>

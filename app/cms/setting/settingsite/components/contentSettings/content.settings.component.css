@@ -1,0 +1,9 @@
+.content-settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-settings > * {
+  width: 90%;
+  margin: 25px
+}

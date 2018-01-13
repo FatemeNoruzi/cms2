@@ -1,0 +1,93 @@
+<div class="example-container mat-elevation-z8">
+    <button md-raised-button color="warn" (click)="openDialogDeleteComponent()">
+        <md-icon>delete</md-icon>
+      حذف انتخاب شده ها 
+    </button>
+    <a md-raised-button color="primary" routerLink="../add" routerLinkActive="active">
+        <md-icon>add</md-icon>
+        ارسال پیام
+    </a>
+
+    
+    <button md-raised-button color="accent" (click)="openSearchDialog()">
+        <md-icon>search</md-icon>
+        جستجو
+    </button>
+
+
+    <div class="example-container md-elevation-z8">
+      <div class="example-header example-selection-header"
+           *ngIf="!selection.isEmpty()">
+        {{selection.selected.length}}
+        {{selection.selected.length == 1 ? 'user' : 'users'}}
+        selected
+      </div>
+      <md-table #table [dataSource]="dataSource" mdSort>
+      <ng-container cdkColumnDef="select">
+          <md-header-cell *cdkHeaderCellDef>
+            <md-checkbox (change)="$event ? masterToggle() : null"
+                         [checked]="isAllSelected()"
+                         [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </md-checkbox>
+          </md-header-cell>
+          <md-cell *cdkCellDef="let row">
+            <md-checkbox (click)="$event.stopPropagation()"
+                         (change)="$event ? selection.toggle(row.id) : null"
+                         [checked]="selection.isSelected(row.id)">
+            </md-checkbox>
+          </md-cell>
+        </ng-container>
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- ID Column -->
+        <ng-container mdColumnDef="id">
+          <md-header-cell *mdHeaderCellDef md-sort-header> شماره بازاریابی </md-header-cell>
+          <md-cell *mdCellDef="let row"> {{row.id}} </md-cell>
+        </ng-container>
+    
+        <!-- Progress Column -->
+        <ng-container mdColumnDef="name">
+          <md-header-cell *mdHeaderCellDef md-sort-header> تصویر </md-header-cell>
+          <md-cell *mdCellDef="let row"> 
+              <img src="http://new.jansu.ir/index.php/images/records/100/60/32150H46CVDPD72C25.jpeg/1"> 
+          </md-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container mdColumnDef="weight">
+          <md-header-cell *mdHeaderCellDef md-sort-header> نام </md-header-cell>
+          <md-cell *mdCellDef="let row"> {{row.weight}} </md-cell>
+        </ng-container>
+    
+        <!-- Color Column -->
+        <ng-container mdColumnDef="symbol">
+          <md-header-cell *mdHeaderCellDef md-sort-header> بازاریاب پدر </md-header-cell>
+          <md-cell *mdCellDef="let row" [style.color]="row.color"> {{row.symbol}} </md-cell>
+        </ng-container>
+        <ng-container mdColumnDef="action">
+            <md-header-cell *mdHeaderCellDef md-sort-header> عملیات </md-header-cell>
+            <md-cell *mdCellDef="let row" [style.color]="row.color"> 
+                <!-- <md-form-field> -->
+                    <md-select placeholder="انتخاب عملیات مورد نظز">
+                      <md-option *ngFor="let food of foods" [value]="food.value">
+                        <a routerLink="../../message/index" routerLinkActive="active"> {{ food.viewValue }} </a>
+                      </md-option>
+                    </md-select>
+                  <!-- </md-form-field>   -->
+            </md-cell>
+          </ng-container>
+    
+        <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row *cdkRowDef="let row; columns: displayedColumns;"
+                 [class.example-selected-row]="selection.isSelected(row.id)"
+                 (click)="selection.toggle(row.id)">
+        </md-row>
+      </md-table>
+      <md-paginator #paginator
+                    [length]="exampleDatabase.data.length"
+                    [pageIndex]="0"
+                    [pageSize]="10"
+                    [pageSizeOptions]="[5, 10, 25, 100]">
+      </md-paginator>
+    </div>

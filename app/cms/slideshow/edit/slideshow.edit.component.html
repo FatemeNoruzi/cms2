@@ -1,0 +1,133 @@
+<md-expansion-panel>
+    <md-expansion-panel-header>
+      <md-panel-title>
+        اطلاعات کلی اسلایدر
+      </md-panel-title>
+      <md-panel-description>
+        مربوط ب اسلایدر
+      </md-panel-description>
+    </md-expansion-panel-header>
+    
+    <div class="slideshow-add">
+        <md-form-field>
+            <input mdInput placeholder="نام" [(ngModel)]="slideshow.SlideName">
+        </md-form-field>
+        <md-form-field>
+            <input mdInput placeholder="عنوان" [(ngModel)]="slideshow.SliderTitle">
+        </md-form-field>
+        <md-form-field>
+            <input mdInput type="number" placeholder="سرعت" [(ngModel)]="slideshow.SpeedRate">
+        </md-form-field>
+        <md-form-field>
+            <input mdInput type="number" placeholder="مدت ماندن هر اسلاید" [(ngModel)]="slideshow.Duration">
+        </md-form-field>
+        <div>
+                <md-form-field>
+                    <input mdInput type="number" placeholder="نسبت عرض " [(ngModel)]="slideW">
+                </md-form-field>
+                <span> به </span>
+                <md-form-field>                            
+                <input mdInput type="number" placeholder="طول" [(ngModel)]="slideH">
+                </md-form-field>
+        </div>
+
+        <md-form-field>
+            <input mdInput type="number" placeholder=" کمترین عرض " [(ngModel)]="slideshow.MinWidth">
+        </md-form-field>
+        <md-form-field>
+            <input mdInput type="number" placeholder="بیشترین عرض" [(ngModel)]="slideshow.MaxWidth">
+        </md-form-field>
+        <md-form-field>
+            <input mdInput type="number" placeholder="تعداد اسلاید ها" [(ngModel)]="slideshow.NumberSlides">
+        </md-form-field>
+
+            <md-select placeholder="Favorite food" [(ngModel)]="slideshow.EntityName">
+              <md-option *ngFor="let entity of Entity" [value]="entity.id" >
+                {{ entity.value }}
+              </md-option>
+            </md-select>
+
+        <button md-raised-button color="primary" (click)="editSlideshow()"> ویرایش </button>
+        </div>
+  </md-expansion-panel>
+  <md-expansion-panel>
+    <md-expansion-panel-header>
+      <md-panel-title>
+        جزییات
+      </md-panel-title>
+      <md-panel-description>
+        مربوط ب جزییات 
+      </md-panel-description>
+    </md-expansion-panel-header>
+    
+        <div class="example-container mat-elevation-z8">
+            <!-- <button md-raised-button color="warn" (click)="openDialogDeleteComponent()">
+                <md-icon>delete</md-icon>
+              حذف انتخاب شده ها 
+            </button> -->
+            <a md-raised-button color="primary"  (click)="openDialogAddSlideComponent()">
+                <md-icon>add</md-icon>
+                افزودن اسلاید جدید
+            </a>
+            
+            <!-- <button md-raised-button color="accent" (click)="openSearchDialog()">
+                <md-icon>search</md-icon>
+                جستجو
+            </button> -->
+        
+            <table class="table table-hover">
+              <thead>
+                  <tr>
+                        <!-- <th class="text-center">
+                                <input type="checkbox" name="all" 
+                                [checked]="isAllChecked()" (change)="checkAll($event)"/>
+                            </th> -->
+                            
+                      <td> متن </td>
+                      <td> ترتیب نمایش </td>
+                      <td> رنگ پسزمینه</td>
+                      <td> رنگ </td>
+                      <td> لینک </td>
+                      <td>تصویر </td>
+                      <td>عملیات</td>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let slide of dataSource;
+                  let isOdd=odd;
+                  let isEven=even"
+                   [class.odd]="isOdd" [class.even]="isEven" [class.selected]="employee === selectedEmployee">
+                    <!-- <td class="text-center">
+                        <input type="checkbox" 
+                        value="{{slideshow.SLIDERHEADERID}}" (change)="checkItem(slideshow.SLIDERHEADERID)"/>
+                    </td> -->
+                    <td>{{slide.Description}}</td>
+                    <td>{{slide.IndexShow}} </td>
+                    <td style="background: '{{slide.BackColor}}'"><div>{{slide.BackColor}}</div></td>
+                    <td>{{slide.ForeColor}}</td>
+                    <td>{{slide.Link}}</td>
+                    <td>
+                        <img src="{{imageUrl}}{{slide.DocumentName}}/{{slide.DocumentExtension}}" alt="Smiley face" style ="max-width: 100px;"/>
+                    </td>
+                    <td>
+                        <a md-raised-button  (click)="openDialogUpdateSlideComponent(slide)" color="accent">ویرایش</a>
+                        <!-- <a md-raised-button  routerLink="../detail/{{slideshow.SLIDERHEADERID}}" routerLinkActive="active" color="accent">جزییات</a> -->
+                        <a md-raised-button  (click)="openDialogDeleteSlideComponent(slide)" color="warn">حذف</a>
+                    </td>
+        
+                </tr>
+              </tbody>
+          </table>
+          <!-- <app-paging
+          (goPage)="goToPage($event)"
+          (goNext)="onNext()"
+          (goPrev)="onPrev()"
+          [pagesToShow]="3"
+          [page]="page"
+          [perPage]="limit"
+          [count]="total"></app-paging> -->
+            </div>
+  </md-expansion-panel>
+        
+            
+        

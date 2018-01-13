@@ -1,0 +1,9 @@
+.dialogUpload {
+  direction: rtl;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dialogUpload > * {
+    width: 90%;
+  }
